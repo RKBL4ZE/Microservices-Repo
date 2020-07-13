@@ -9,8 +9,9 @@ export class AppController {
 	constructor(private readonly appService: AppService) {}
 
 	@MessagePattern('micro')
-	getHello(@Payload() data: number[], @Ctx() context: RedisContext): string {
+	getHello(@Payload() data: string, @Ctx() context: RedisContext): string {
 		this.logger.log(data);
-		return this.appService.getHello();
+		this.logger.log(context);
+		return this.appService.getHello(data);
 	}
 }

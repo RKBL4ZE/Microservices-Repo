@@ -9,7 +9,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 				name: 'MICRO_SERVICE',
 				transport: Transport.REDIS,
 				options: {
-					url: 'redis://localhost:3001'
+					url: 'redis://redis:6379'
 				}
 			}
 		])

@@ -1,12 +1,12 @@
 FROM node:12.13-alpine As development
 
+RUN npm install yarn -g
+
 WORKDIR /usr/src/micro
 
 COPY package*.json ./
 
-RUN ls -al
-
-RUN npm install --only=development
+RUN yarn install --production=false
 
 COPY . .
 
@@ -21,7 +21,7 @@ WORKDIR /usr/src/micro
 
 COPY package*.json ./
 
-RUN npm install --only=production
+RUN yarn install --production
 
 COPY . .
 
