@@ -10,6 +10,8 @@ RUN yarn install --production=false
 
 COPY . .
 
+RUN ls -al
+
 RUN npm run build
 
 FROM node:12.13-alpine as production

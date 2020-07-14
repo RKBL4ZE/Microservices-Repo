@@ -7,8 +7,8 @@ services:
       context: ../packages/APIService
       target: development
     volumes:
-      - /usr/src/api
-      - /usr/src/api/node_modules
+      - "../packages/APIService:/usr/src/api"
+      - "/usr/src/api/node_modules"
     ports:
       - 3000:3000
     command: npm run start:dev
@@ -24,7 +24,7 @@ services:
       context: ../packages/MicroService
       target: development
     volumes:
-      - /usr/src/micro
+      - ../packages/MicroService:/usr/src/micro
       - /usr/src/micro/node_modules
     command: npm run start:dev
     env_file:
